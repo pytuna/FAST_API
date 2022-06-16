@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU</title>
+    <link href="{{ url_for('static', path='/css/main.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="header"
+        style="text-align: center;">
+        <p class="cpu">CPU: {{CPU}}%</p>
+        <p class="ram">RAM: {{RAM}}%</p>
+    </div>
+    <div class="info_sys">
+      <div class="circle-wrap"
+      style="--radius: {{CPU}}deg;">
+      <p class="name">CPU</p>
+      <div class="circle">
+        
+        <div class="mask full">
+          <div class="fill"></div>
+        </div>
+       
+        <div class="mask half">
+          <div class="fill"></div>
+        </div>
+        
+        <div class="inside-circle">
+          
+          {{CPU}}%
+        </div>
+        
+      </div>
+    </div>
+    <div class="circle-wrap"
+      style="--radius: {{RAM}}deg;">
+      <p class="name">RAM</p>
+      <div class="circle">
+        
+        <div class="mask full">
+          <div class="fill"></div>
+        </div>
+       
+        <div class="mask half">
+          <div class="fill"></div>
+        </div>
+        
+        <div class="inside-circle">
+          
+          {{RAM}}%
+        </div>
+        
+      </div>
+    </div>
+    </div>
+    
+</body>
+
+</html>

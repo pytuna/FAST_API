@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Axie",
+      "price": 12000
+    },
+    {
+      "id": 2,
+      "name": "Sorare",
+      "price": 14000
+    },
+    {
+      "id": 3,
+      "name": "Gods",
+      "price": 10000
+    },
+    {
+      "id": 4,
+      "name": "Queen",
+      "price": 10000
+    }
+  ]
+}

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/assets/fontawesome-free-6.1.1-web/css/all.css">
+    <link rel="stylesheet" href="static/assets/fontawesome-free-6.1.1-web/js/all.js">
+    <link rel="stylesheet" href="static/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="static/assets/css/base.css">
+    <link rel="stylesheet" href="static/assets/css/loginForm.css">
+    <link rel="stylesheet" href="static/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="static/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="{{url_for('static', path='/assets/fontawesome-free-6.1.1-web/css/all.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', path='/assets/fontawesome-free-6.1.1-web/js/all.js')}}">
+    <link rel="stylesheet" href="{{url_for('static', path='/node_modules/bootstrap-icons/font/bootstrap-icons.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', path='/assets/css/base.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', path='/assets/css/loginForm.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', path='/assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', path='/assets/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', path='/assets/css/style.css')}}"> -->
+
+    <title>TIP24</title>
+</head>
+
+<body>
+    <!-- Thanh navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand nav-item-icon" href="#"><i class="bi bi-grid-fill"></i> DashBoard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li  class="nav-item nav-item-icon">
+                        <a id="home" class="nav-link" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item nav-item-icon">
+                        <a class="nav-link testtool" href="#"><i class="fa-solid fa-computer"></i><span class="tooltiptext">Chức năng...</span></a>
+                        
+                    </li>
+                    <li class="nav-item nav-item-icon">
+                        <a class="nav-link" href="#"><i class="fas fa-save"></i></a>
+                    </li>
+                    <li class="nav-item nav-item-icon">
+                        <a class="nav-link" href="#"><i class="fa-solid fa-address-book"></i></a>
+                    </li>
+                    <li class="nav-item nav-item-icon">
+                        <a class="nav-link" href="#"><i class="fa-solid fa-headset"></i></i></a>
+                    </li>
+                    <li class="nav-item nav-item-icon">
+                        <a class="nav-link " href="#" ><i class="fa-solid fa-up-down-left-right"></i></a>
+                    </li>
+                    <li class="nav-item nav-item-icon">
+                        <a class="nav-link " href="#" ><i class="fa-solid fa-coins"></i></i></a>
+                    </li>
+                    <li class="nav-item nav-item-icon">
+                        <a class="nav-link " href="#" >IPU</a>
+                    </li>
+                    <li class="nav-item nav-item-icon">
+                        <div class="nav-link"><i id="login-btn" class="fa-solid fa-right-to-bracket"></i></div>
+                    </li>
+                    <li class="nav-item nav-item-icon">
+                        <a id="user" class="nav-link hidden" href="#" ><i class="fa-solid fa-id-badge"></i></a>
+                    </li>
+                </ul>
+                <div class="statusAll">
+                    <div class="statusConnection">Trạng thái kết nối: Chưa kết nối</div>
+                    <div class="versionFirmware">Firmware: 0.0</div>
+                    <div class="IPaddress">IP Address: None</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Render layout thiết bị -->
+    <div class="container">
+        <div class="main-login hidden">
+            <form action="/" method="POST" class="form" id="form-1">
+              <h3 class="heading">Đăng nhập vào hệ thống</h3>
+              <h3 class="heading">Tổng đài TIP24</h3>
+          
+              <div class="spacer"></div>
+          
+              <div class="form-group">
+                <label for="username" class="form-label">Tên tài khoản người dùng</label>
+                <input id="username" name="username" type="text" placeholder="VD:Tecacom" class="form-control">
+                <span class="form-message"></span>
+              </div>
+          
+              <!-- <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
+                <span class="form-message"></span>
+              </div> -->
+          
+              <div class="form-group">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                <span class="form-message"></span>
+              </div>
+          
+              <!-- <div class="form-group">
+                <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+                <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
+                <span class="form-message"></span>
+              </div> -->
+    
+              <!-- <div class="form-group">
+                <label for="gender_group" class="form-label">Giới tính</label>
+                <div class="gender_group">
+                  <input name="gender_information" type="radio" value="male" class="form-control">
+                  <span for="gender_select" class="gender_select">Nam</span>
+                </div>
+                <div class="gender_group">
+                  <input name="gender_information" type="radio" value="female" class="form-control">
+                  <span for="gender_select" class="gender_select">Nữ</span>
+                </div>
+                <div class="gender_group">
+                  <input name="gender_information" type="radio" value="orthers" class="form-control">
+                  <span for="gender_select" class="gender_select">Khác</span>
+                </div>
+                <span class="form-message"></span>
+                
+              </div> -->
+          
+              <button class="form-submit" type="submit">Đăng nhập</button>
+    
+            </form>
+          
+          </div>
+        <div class="row device hidden">
+            <div class="col-12">
+                <div class="selectCardForm bg-success">
+                    <from>
+                        <div class="mb-3">
+                            <label for="" class="form-label selectCardFormLabel">Chọn NIC</label>
+                            <select class="browser-default custom-select">
+                                <option selected="">Mở menu để thực hiện chọn</option>
+                                <option value="1">Realtek PCIe GBE Family Controller </option>
+                                <option value="2">Realtek PCIe GBE Family Controller </option>
+                                <option value="3">Realtek PCIe GBE Family Controller </option>
+                              </select>
+        
+                              <button type="button" class="btn btn-connect">Kết nối</button>
+                              <button type="button" class="btn btn-off">Dừng</button>
+                        </div>
+                    </from>
+
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="controlBar bg-success">
+                    <from>
+                        <div class="mb-3">
+                            <label for="" class="form-label controlBarLabel">Cấu hình hiện tại đang sử dụng</label>
+                            <select class="browser-default custom-select">
+                                <option selected="">Mở menu để thực hiện chọn</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                              </select>
+                              <label class="containerCheckbox">Kích hoạt
+                                <input type="checkbox" checked="checked">
+                              </label>
+                              
+                              <label class="containerCheckbox">Lưu cấu hình
+                                <input type="checkbox">
+                              </label>
+                              <button type="button" class="btn btn-control">OK</button>
+                              <button type="button" class="btn btn-take">Lấy cấu hình</button>
+                        </div>
+                    </from>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="boxGroupPower">
+                    <div class="groupPowerLeds main-leds leds">
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i id="sub1" class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB01</span>
+                            
+                        </div>
+                       
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB02</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led-active fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB03</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB04</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB05</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB06</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB07</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB08</span>
+                        </div>
+
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB09</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB10</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB11</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i id="sub12" class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB12</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB13</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB14</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led main-led-tk fa-solid fa-circle"></i>
+                            <span class="ledIndex">TKCO1</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led main-led-tk fa-solid fa-circle"></i>
+                            <span class="ledIndex">DKX1</span>
+                        </div>
+                </div>
+
+            </div>
+            </div>
+            <div class="col-12">
+                <div class="boxGroupPower">
+                    <div class="groupPowerLeds main-leds leds">
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB15</span>
+                            
+                        </div>
+                       
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB16</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led main-led-active fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB17</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB18</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB19</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB20</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB21</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB22</span>
+                        </div>
+
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB23</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB24</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB25</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB26</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB27</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SUB28</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led main-led-tk fa-solid fa-circle"></i>
+                            <span class="ledIndex">TKCO2</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led main-led-tk fa-solid fa-circle"></i>
+                            <span class="ledIndex">DKX2</span>
+                        </div>
+
+                    
+                </div>
+
+            </div>
+            </div>
+
+
+
+            <div class="col-12">
+                <div class="timeSys">
+                    <div class="time">
+                       ----
+                    </div>
+                    <div class="Texttime">
+                        TIME-SYSTEM DISPLAY
+                    </div>
+                </div>
+                <div class="boxGroupPower">
+                    <div class="groupPowerLeds main-leds leds">
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led-active fa-solid fa-circle"></i>
+                            <span class="ledIndex">75VAC</span>
+                            
+                        </div>
+                       
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">V-NEG</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led-active fa-solid fa-circle"></i>
+                            <span class="ledIndex">V-POS</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">V-IN</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">DSP</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">IPU</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led text-danger fa-solid fa-circle"></i>
+                            <span class="ledIndex">RUN</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">SYNC</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">LAN1</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">LAN2</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">WAN</span>
+                        </div>
+                        <div class="elementPowerLeds main-ledStatus">
+                            <i class="elementPowerLed main-led fa-solid fa-circle"></i>
+                            <span class="ledIndex">IPX</span>
+                        </div>
+                        
+                        
+                    
+                </div>
+                    
+                </div>
+
+            </div>
+
+            <div class="col-12 navTab">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item nav-item-icon" role="presentation">
+                      <button class="nav-link active tab" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Lịch sử cuộc gọi tới máy trực</button>
+                      
+   
+                    </li>
+                    <li class="nav-item nav-item-icon" role="presentation">
+                      <button class="nav-link tab" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Giám sát dịch vụ hiện có của tổng đài</button>
+                    </li>
+                    
+                  </ul>
+                  <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">                   <div class="boxContent">
+                        <div class="context">Máy trực 1: 659100</div>
+                        <div class="context">Máy trực 2: 659101</div>
+                        <div class="context">Máy trực 3: 659102</div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <table>
+                            <tr>
+                              <th>Company</th>
+                              <th>Contact</th>
+                              <th>Country</th>
+                            </tr>
+                            <tr>
+                              <td>Alfreds Futterkiste</td>
+                              <td>Maria Anders</td>
+                              <td>Germany</td>
+                            </tr>
+                            <tr>
+                              <td>Centro comercial Moctezuma</td>
+                              <td>Francisco Chang</td>
+                              <td>Mexico</td>
+                            </tr>
+                          </table>
+                    </div>
+                    
+                    </div>
+    
+    
+            </div>
+
+            </div>
+    </div>
+    
+    <script src="static/assets/js/bootstrap.js"></script>
+    <script src="static/assets/js/main.js"></script>
+    <script src="static/assets/js/loginForm.js"></script>
+    <!-- <script src="{{url_for('static', path='/assets/js/bootstrap.js')}}"></script>
+    <script src="{{url_for('static', path='/assets/js/main.js')}}"></script>
+    <script src="{{url_for('static', path='/assets/js/loginForm.js')}}"></script> -->
+    
+    <script>
+        
+      Validator({
+        form: '#form-1',
+        formGroup: '.form-group',
+        errorSelector: '.form-message',
+        rules: [ Validator.isRequired('#username', 'Vui lòng nhập tên tài khoản đăng nhập'),
+          // Validator.isRequired('#email'),
+          // Validator.isEmailValid('#email', 'Vui lòng nhập email của bạn'),
+          Validator.isRequired('#password', 'Vui lòng nhập mật khẩu'),
+          // Validator.isRequired('#password_confirmation'),
+          // Validator.isRequired('input[name="gender_information"]'),
+          // Validator.isConfirmed('#password_confirmation', function() {
+          //   return document.querySelector('#form-1 #password').value;
+          // }, 'Mật khẩu nhập lại không khớp, vui lòng nhập lại')
+        ],
+        onSubmit: function (data) {
+          if((data.username=="nam")&(data.password==123)) {
+            home.classList.remove('hidden');
+            loginForm.classList.add('hidden');
+            login.parentElement.classList.add('hidden');
+            homePage.classList.add('active');
+            console.log(logined)
+            logined.classList.remove('hidden');
+            logined.classList.add('active');
+            console.log(logined)
+          }
+
+          else {
+              alert("Tài khoản đăng nhập hoặc mật khẩu không đúng. Vui lòng nhập lại")
+
+          }
+         
+
+        },
+      })
+
+    </script>
+     
+</body>
+
+</html>
